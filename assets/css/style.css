@@ -13266,7 +13266,7 @@ header.header-full-width.header--sticky.sticky {
   border-radius: 100%;
 }
 .bg-benner-img-six::after {
-  content: url("../../assets/images/banner/banner-six-shape.png");
+  content: url("../images/banner/banner-six-shape.png");
   position: absolute;
   top: 50%;
   left: 50%;
@@ -17223,7 +17223,7 @@ section.clients-testimonial-area {
 }
 .client-testimonial-swiper::before {
   content: " ";
-  background-image: url("../../assets/images/testimonial/left-bg-img.png");
+  background-image: url("../images/testimonial/left-bg-img.png");
   background-repeat: no-repeat;
 }
 .client-testimonial-swiper .swiper {
@@ -18480,7 +18480,7 @@ section.clients-testimonial-area {
   border-radius: 100%;
 }
 .bg-benner-img-six::after {
-  content: url("../../assets/images/banner/banner-six-shape.png");
+  content: url("../images/banner/banner-six-shape.png");
   position: absolute;
   top: 50%;
   left: 50%;
@@ -20661,7 +20661,7 @@ section.clients-testimonial-area {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../assets/images/breadcrumb/breadcum-bg.png");
+  background-image: url("../images/breadcrumb/breadcum-bg.png");
 }
 
 .breadcrumb-area {
