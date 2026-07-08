@@ -140,17 +140,48 @@
                     
                     const element = document.getElementById(c.id);
                     if (element) {
-                        element.outerHTML = html;
+                        // Giữ lại thẻ root để các link nội bộ như #portfolio-root có thể cuộn tới đúng vị trí
+                        element.innerHTML = html;
                     }
                 } catch (e) {
                     console.warn('Không thể load component:', c.file, e);
                 }
             }
 
+
+            // Sửa các link nội bộ đang trỏ tới file không tồn tại trên GitHub Pages
+            fixPortfolioLinks();
+
             // Kích hoạt lại hiệu ứng Background Particle sau khi giao diện đã dựng xong
             if (typeof particlesJS === 'function') {
                 initParticlesBg();
             }
+        }
+
+
+        function fixPortfolioLinks() {
+            const portfolioTarget = document.getElementById('portfolio-root');
+
+            document.querySelectorAll('a[href]').forEach((link) => {
+                const href = link.getAttribute('href');
+
+                // Nút "View Portfolio" trong template đang trỏ tới project-details-white.html,
+                // nhưng file này không có trong repo nên GitHub Pages báo 404.
+                if (href && href.includes('project-details-white.html')) {
+                    link.setAttribute('href', '#portfolio-root');
+
+                    link.addEventListener('click', function (event) {
+                        event.preventDefault();
+
+                        if (portfolioTarget) {
+                            portfolioTarget.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                }
+            });
         }
 
         function initParticlesBg() {
