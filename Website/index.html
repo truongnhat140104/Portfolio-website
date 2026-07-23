@@ -126,8 +126,11 @@
                 try {
                     const res = await fetch(c.file);
                     if (!res.ok) throw new Error(`Lỗi nạp file: ${res.status}`);
-                    const html = await res.text();
+                    let html = await res.text();
                     
+                    // Chuyển ../ thành ./ khi chèn vào index.html ở thư mục gốc
+                    html = html.replace(/(src|href)=["']\.\.\//g, '$1="');
+
                     const element = document.getElementById(c.id);
                     if (element) {
                         // Giữ lại thẻ root để các link nội bộ như #portfolio-root có thể cuộn tới đúng vị trí
